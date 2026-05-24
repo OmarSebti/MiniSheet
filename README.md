@@ -1,6 +1,6 @@
 # MiniSheet
 
-A lightweight cross-platform spreadsheet app (Mac & Windows) built with Python and tkinter.
+A lightweight cross-platform spreadsheet app (Mac & Windows) built with Electron + vanilla JS.
 
 ## Features
 
@@ -10,22 +10,20 @@ A lightweight cross-platform spreadsheet app (Mac & Windows) built with Python a
   - `SUM(A1:F6)` or `SUM(A1,B2,C3)`
   - `AVG(A1:F6)` / `AVERAGE(A1:F6)`
   - `MIN(A1:F6)`, `MAX(A1:F6)`, `COUNT(A1:F6)`
-- **Multiple sheets** — add or remove sheets with the `+` / `−` buttons (minimum 1 sheet)
-- **Auto-save** — content is saved on close and restored on next launch
+- **Multiple sheets** — add / remove with `+` / `−` (minimum 1 sheet)
+- **Auto-save** — every change is persisted; reopening restores exact state
 
 ## Requirements
 
-- Python 3.8 or later  
-- `tkinter` (bundled with the standard Python installer on Windows and macOS)
+- [Node.js](https://nodejs.org/) 18+
+- Electron (installed via npm)
 
-## Running
+## Setup & run
 
 ```bash
-python main.py
+npm install
+npm start
 ```
-
-On Windows you can also double-click `main.py` if Python is associated with `.py` files,
-or run `pythonw main.py` to suppress the console window.
 
 ## Keyboard shortcuts
 
@@ -35,8 +33,10 @@ or run `pythonw main.py` to suppress the console window.
 | Tab | Confirm and move right |
 | Shift+Tab | Confirm and move left |
 | Arrow keys | Navigate (at cell boundary) |
-| Escape | Cancel formula-bar edit |
+| Escape | Discard edit |
 
 ## Data storage
 
-Data is saved to `~/.minisheet_data.json` (your home directory on both platforms).
+Saved automatically to Electron's `userData` directory:
+- **macOS**: `~/Library/Application Support/minisheet/minisheet_data.json`
+- **Windows**: `%APPDATA%\minisheet\minisheet_data.json`

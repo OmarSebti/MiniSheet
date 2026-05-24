@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';" />
+  <title>MiniSheet</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Formula bar -->
+  <div id="formula-bar">
+    <div id="cell-ref"></div>
+    <span class="fx">fx</span>
+    <input id="formula-input" type="text" autocomplete="off" spellcheck="false" />
+  </div>
+
+  <!-- Spreadsheet grid (built by renderer.js) -->
+  <div id="grid-wrap">
+    <table id="grid" cellspacing="0" cellpadding="0"></table>
+  </div>
+
+  <!-- Sheet tabs -->
+  <div id="sheet-bar">
+    <button id="btn-add"    title="Add sheet">+</button>
+    <button id="btn-remove" title="Remove sheet">−</button>
+    <div id="tabs"></div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
